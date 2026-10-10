@@ -274,9 +274,8 @@
     </div>
   </header>
   <!-- Hidden HTML5 Audio Element (Festive Carnatic instrumental) -->
-  <audio id="weddingAudio" loop preload="auto">
-    <source src="./song.mp3" type="audio/mpeg">
-    Your browser does not support audio.
+  <audio id="weddingAudio" autoplay loop preload="auto">
+    <source src="/song.mp3" type="audio/mpeg">
   </audio>
   <!-- ================= SECTION 1 — CINEMATIC OPENING ================= -->
   <section
@@ -795,11 +794,22 @@
     });
 
     // Automatically try playing when the page loads
-    window.addEventListener("load", () => {
-      audio.play().catch(() => {
-        console.log("Autoplay blocked. Click the music button to play.");
+    // Try autoplay immediately
+    function startWeddingMusic() {
+      audio.muted = false;
+
+      audio.play().catch((error) => {
+        console.log("Browser blocked autoplay:", error);
       });
-    });
+    }
+
+    if (document.readyState === "complete") {
+      startWeddingMusic();
+    } else {
+      window.addEventListener("load", startWeddingMusic, {
+        once: true
+      });
+    }
 
 
     // 3. CALENDAR ICS EVENT DOWNLOAD
