@@ -769,36 +769,30 @@
     const icon = document.getElementById("musicIcon");
     const musicBtn = document.getElementById("musicBtn");
 
-    async function playMusic() {
-      try {
-        await audio.play();
-
-        weddingState.audioPlaying = true;
-        icon.textContent = "🎶";
-        musicBtn.setAttribute("aria-label", "Pause Wedding Music");
-      } catch (error) {
-        weddingState.audioPlaying = false;
-        console.log("Autoplay blocked or audio failed to load:", error);
-      }
-    }
-
     function toggleAudio() {
       if (audio.paused) {
-        playMusic();
+        audio.play()
+          .then(() => {
+            weddingState.audioPlaying = true;
+            if (icon) icon.textContent = "🎶";
+          })
+          .catch((error) => {
+            console.error("Music playback failed:", error);
+          });
       } else {
         audio.pause();
         weddingState.audioPlaying = false;
-        icon.textContent = "🔇";
-        musicBtn.setAttribute("aria-label", "Play Wedding Music");
+        if (icon) icon.textContent = "🔇";
       }
     }
 
-    // Attempt autoplay when the page loads
+    // Try autoplay; the browser may block it
     window.addEventListener("load", () => {
-      playMusic();
+      audio.play().catch(() => {
+        console.log("Click the music button to start playback.");
+      });
     });
 
-    // Keep the state synchronized with actual audio playback
     audio.addEventListener("play", () => {
       weddingState.audioPlaying = true;
     });
