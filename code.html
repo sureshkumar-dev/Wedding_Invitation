@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="ta" style="width: 100%; min-height: 100%; overflow-x: hidden; position: relative;">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Sathishkumar &amp; Hemasri — Royal Tamil Wedding Invitation</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&amp;family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;family=Great+Vibes&amp;family=Mukta+Malar:wght@300;400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600&amp;display=swap"
+    rel="stylesheet" />
+  <style>
+    /* Dynamic Theme Variables */
+    :root {
+      --bg-cinematic: #0d0a08;
+      --bg-light: #faf6ee;
+      --card-bg: #ffffff;
+      --card-border: #e6dac6;
+      --gold-primary: #d4af37;
+      --gold-accent: #b89028;
+      --gold-light: #f6e8b1;
+      --gold-gradient: linear-gradient(135deg, #f6e8b1 0%, #d4af37 50%, #997d29 100%);
+      --text-main: #1f1915;
+      --text-muted: #6b5e52;
+      --accent-badge: #8B1E1E;
+      --badge-text: #ffffff;
+      --hero-overlay: rgba(13, 10, 8, 0.72);
+      --font-display: 'Cinzel', serif;
+      --font-serif: 'Cormorant Garamond', serif;
+      --font-tamil: 'Mukta Malar', sans-serif;
+      --font-script: 'Great Vibes', cursive;
+    }
+
+    body[data-theme="royal-thanjavur"] {
+      --bg-cinematic: #0d0a08;
+      --bg-light: #faf6ee;
+      --card-bg: #ffffff;
+      --card-border: #e8dcbf;
+      --gold-primary: #d4af37;
+      --gold-accent: #a37c1a;
+      --accent-badge: #8B1E1E;
+      --text-main: #1f1915;
+    }
+
+    .font-cinzel {
+      font-family: var(--font-display);
+    }
+
+    .font-serif-lux {
+      font-family: var(--font-serif);
+    }
+
+    .font-tamil {
+      font-family: var(--font-tamil);
+    }
+
+    .font-script {
+      font-family: var(--font-script);
+    }
+
+    /* Animated Gold Gradient Text Shimmer */
+    @keyframes goldShimmer {
+      0% {
+        background-position: -200% center;
+      }
+
+      100% {
+        background-position: 200% center;
+      }
+    }
+
+    .gold-gradient-text {
+      background: linear-gradient(90deg, #f3d47d 0%, #ffffff 25%, #d4af37 50%, #f6e8b1 75%, #b89028 100%);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: goldShimmer 7s ease-in-out infinite alternate;
+    }
+
+    /* Floating Golden Dust Particles / Embers */
+    @keyframes floatParticle {
+      0% {
+        transform: translateY(0px) translateX(0px) scale(0.8);
+        opacity: 0;
+      }
+
+      40% {
+        opacity: 0.85;
+        filter: drop-shadow(0 0 6px #ffd966);
+      }
+
+      80% {
+        opacity: 0.6;
+      }
+
+      100% {
+        transform: translateY(-130px) translateX(25px) scale(1.2);
+        opacity: 0;
+      }
+    }
+
+    .particle {
+      position: absolute;
+      background: radial-gradient(circle, #fff7cc 0%, #eab308 60%, rgba(212, 175, 55, 0) 100%);
+      border-radius: 50%;
+      pointer-events: none;
+      filter: blur(0.6px);
+    }
+
+    /* Drifting Jasmine & Marigold Petals */
+    @keyframes fallingPetals {
+      0% {
+        transform: translateY(-20px) rotate(0deg) translateX(0);
+        opacity: 0;
+      }
+
+      20% {
+        opacity: 0.75;
+      }
+
+      80% {
+        opacity: 0.65;
+      }
+
+      100% {
+        transform: translateY(105vh) rotate(380deg) translateX(50px);
+        opacity: 0;
+      }
+    }
+
+    .petal {
+      position: fixed;
+      pointer-events: none;
+      z-index: 30;
+      border-radius: 80% 0 70% 30% / 70% 0 80% 30%;
+      animation: fallingPetals linear infinite;
+    }
+
+    /* Diya Flame Flicker Effect */
+    @keyframes flameFlicker {
+
+      0%,
+      100% {
+        transform: scale(1) translateY(0) rotate(-1deg);
+        filter: drop-shadow(0 0 6px rgba(251, 191, 36, 0.9));
+      }
+
+      25% {
+        transform: scale(1.12, 0.94) translateY(-1px) rotate(2deg);
+        filter: drop-shadow(0 0 10px rgba(245, 158, 11, 1));
+      }
+
+      50% {
+        transform: scale(0.95, 1.08) translateY(-2px) rotate(-1deg);
+        filter: drop-shadow(0 0 8px rgba(252, 211, 77, 0.95));
+      }
+
+      75% {
+        transform: scale(1.06, 0.98) translateY(-1px) rotate(1deg);
+        filter: drop-shadow(0 0 12px rgba(245, 158, 11, 0.85));
+      }
+    }
+
+    .diya-flame {
+      display: inline-block;
+      transform-origin: center bottom;
+      animation: flameFlicker 2.4s ease-in-out infinite;
+    }
+
+    /* Subtle Rotating Kolam / Mandala */
+    @keyframes slowRotate {
+      from {
+        transform: rotate(0deg);
+      }
+
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .rotating-kolam {
+      animation: slowRotate 70s linear infinite;
+    }
+
+    /* Auspicious Badge Pulsing Aura */
+    @keyframes auraGlow {
+
+      0%,
+      100% {
+        box-shadow: 0 0 10px rgba(212, 175, 55, 0.25), 0 0 0 1px rgba(212, 175, 55, 0.3);
+      }
+
+      50% {
+        box-shadow: 0 0 22px rgba(212, 175, 55, 0.55), 0 0 0 2px rgba(245, 158, 11, 0.5);
+      }
+    }
+
+    .aura-pulse {
+      animation: auraGlow 3.5s ease-in-out infinite;
+    }
+
+    /* Kolam & Floral divider styling */
+    .kolam-divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    .kolam-divider::before,
+    .kolam-divider::after {
+      content: "";
+      height: 1px;
+      width: 48px;
+      background: linear-gradient(to right, transparent, var(--gold-primary));
+    }
+
+    .kolam-divider::after {
+      background: linear-gradient(to left, transparent, var(--gold-primary));
+    }
+  </style>
+</head>
+
+<body
+  class="bg-[var(--bg-light)] text-[var(--text-main)] font-['Plus_Jakarta_Sans',sans-serif] antialiased transition-colors duration-500 overflow-x-hidden selection:bg-amber-200 selection:text-amber-900"
+  data-theme="royal-thanjavur">
+  <!-- Falling Festive Petals (Jasmine & Golden Marigold Flakes) -->
+  <div aria-hidden="true" class="fixed inset-0 pointer-events-none z-20 overflow-hidden">
+    <div
+      class="petal w-3.5 h-2.5 bg-gradient-to-br from-amber-100 to-amber-200/90 left-[10%] top-[-20px] shadow-sm animate-[fallingPetals_12s_infinite_linear]"
+      style="animation-delay: 0s;"></div>
+    <div
+      class="petal w-2.5 h-3 bg-gradient-to-tr from-amber-300 to-amber-400/80 left-[35%] top-[-20px] shadow-sm animate-[fallingPetals_15s_infinite_linear]"
+      style="animation-delay: 3s;"></div>
+    <div
+      class="petal w-3 h-2 bg-gradient-to-br from-amber-50 to-amber-100/90 left-[62%] top-[-20px] shadow-sm animate-[fallingPetals_13s_infinite_linear]"
+      style="animation-delay: 6s;"></div>
+    <div
+      class="petal w-3.5 h-3 bg-gradient-to-br from-amber-300 to-yellow-500/80 left-[85%] top-[-20px] shadow-sm animate-[fallingPetals_17s_infinite_linear]"
+      style="animation-delay: 1.5s;"></div>
+    <div
+      class="petal w-2 h-2.5 bg-gradient-to-tr from-amber-100 to-amber-200/80 left-[22%] top-[-20px] shadow-sm animate-[fallingPetals_14s_infinite_linear]"
+      style="animation-delay: 8s;"></div>
+  </div>
+  <!-- ================= TOP FLOATING UTILITY DOCK ================= -->
+  <header
+    class="fixed top-3 left-1/2 -translate-x-1/2 z-50 w-[92%] max-w-sm bg-black/60 backdrop-blur-md border border-amber-500/30 rounded-full px-3 py-1.5 flex items-center justify-between text-white shadow-2xl">
+    <!-- Venue Pill Trigger -->
+    <a class="inline-flex items-center gap-1.5 text-xs font-cinzel tracking-wider px-2.5 py-1 rounded-full bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 border border-amber-500/40 transition whitespace-nowrap overflow-hidden text-ellipsis"
+      href="#muhurtham" title="Venue: Kamatchi Mahal, Thiruthuraipoondi"><svg
+        class="w-3.5 h-3.5 flex-shrink-0 text-amber-400" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+        <path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+          stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+        <path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+        </path>
+      </svg><span class="whitespace-nowrap">TTP • Kamatchi Mahal</span></a>
+    <!-- Audio Player Controller -->
+    <div class="flex items-center gap-2">
+      <!-- Music Mute/Play Toggle (Simulated ambient Nadaswaram & Mangala Vadyam) -->
+      <button aria-label="Toggle Wedding Music"
+        class="flex items-center justify-center p-2 rounded-full bg-amber-500/10 hover:bg-amber-500/30 text-amber-300 border border-amber-500/30 text-xs transition shadow-sm aura-pulse"
+        id="musicBtn" onclick="toggleAudio()" title="Play / Mute Music"><span
+          class="w-4 h-4 flex items-center justify-center text-amber-300" id="musicIcon"><svg class="w-4 h-4"
+            fill="none" stroke="currentColor" viewbox="0 0 24 24">
+            <path
+              d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 4.663 12 5.109 12 6v12c0 .891-1.077 1.337-1.707.707L5.586 15z"
+              fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+            <path d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2" stroke-linecap="round" stroke-linejoin="round"
+              stroke-width="2"></path>
+          </svg></span></button>
+    </div>
+  </header>
+  <!-- Hidden HTML5 Audio Element (Festive Carnatic instrumental) -->
+  <audio id="weddingAudio" loop preload="auto">
+  <source src="./song.mp3" type="audio/mpeg">
+  Your browser does not support audio.
+</audio>
+  <!-- ================= SECTION 1 — CINEMATIC OPENING ================= -->
+  <section
+    class="relative min-h-screen flex flex-col items-center justify-between text-center px-4 pt-24 pb-12 overflow-hidden bg-[#0d0a08]"
+    id="hero">
+    <!-- Immersive Temple Background with Parallax & Light Rays -->
+    <div class="absolute inset-0 z-0 overflow-hidden">
+      <img alt="Ancient Tamil Hindu Temple Mandapam Entrance with Brass Vilakku and Golden God Rays"
+        class="w-full h-full object-cover object-center scale-105 transition-transform duration-1000 ease-out brightness-[0.78] contrast-[1.08]"
+        src="https://lh3.googleusercontent.com/aida/AEtjO1UQpueHqxn535wI7P4qqq2Xq1v1R4Ze3lncPQRLMaUfRg4w_JrmSVwIHgMDbqTTPT3R0F-x30nb4gtNVwtTKm7nWwz9thxt7xxieRrjZCY5d0CFIqG5HimOFsGJWQP9UwGVqBmGLkc84r3Fx_lVsK0OL2kLy2tT6KdYC7M8BJZtcqnsTzGAENHacHsddDvz52B2BaoLI6RF9GUEAc731oYWM-9aBEy_DtNI_i2rM0MuP1sZulgPANGTp5Xj" />
+      <!-- Dark Atmospheric Vignette Gradient -->
+      <div class="absolute inset-0 bg-gradient-to-b from-black/80 via-black/40 to-[#0d0a08]"></div>
+      <!-- Rotating Sacred Mandala Watermark -->
+      <div class="absolute inset-0 flex items-center justify-center opacity-[0.08] pointer-events-none">
+        <svg class="w-[520px] h-[520px] text-amber-300 rotating-kolam" fill="currentColor" viewbox="0 0 100 100">
+          <circle cx="50" cy="50" fill="none" r="46" stroke="currentColor" stroke-dasharray="2 3" stroke-width="0.8">
+          </circle>
+          <circle cx="50" cy="50" fill="none" r="38" stroke="currentColor" stroke-width="0.8"></circle>
+          <path d="M50 4 A46 46 0 0 1 50 96 A46 46 0 0 1 50 4 Z" fill="none" stroke="currentColor" stroke-width="0.5">
+          </path>
+          <path d="M4 50 A46 46 0 0 1 96 50 A46 46 0 0 1 4 50 Z" fill="none" stroke="currentColor" stroke-width="0.5">
+          </path>
+          <polygon fill="none" points="50,14 78,50 50,86 22,50" stroke="currentColor" stroke-width="0.6"></polygon>
+          <polygon fill="none" points="14,50 50,78 86,50 50,22" stroke="currentColor" stroke-width="0.6"></polygon>
+        </svg>
+      </div>
+      <!-- Subtle Golden Ray Sheen -->
+      <div
+        class="absolute inset-0 bg-[radial-gradient(circle_at_50%_40%,rgba(212,175,55,0.25)_0%,transparent_70%)] pointer-events-none">
+      </div>
+      <!-- Simulated Floating Golden Dust Embers -->
+      <div class="particle w-2 h-2 top-1/4 left-1/3 animate-[floatParticle_6s_infinite_ease-in]"></div>
+      <div class="particle w-1.5 h-1.5 top-1/3 right-1/4 animate-[floatParticle_8s_infinite_ease-in_1s]"></div>
+      <div class="particle w-2.5 h-2.5 top-1/2 left-1/5 animate-[floatParticle_7s_infinite_ease-in_2s]"></div>
+      <div class="particle w-2 h-2 top-2/3 right-1/3 animate-[floatParticle_9s_infinite_ease-in_3s]"></div>
+      <div class="particle w-1.5 h-1.5 top-1/5 right-1/6 animate-[floatParticle_7.5s_infinite_ease-in_1.5s]"></div>
+      <div class="particle w-2 h-2 top-3/4 left-1/4 animate-[floatParticle_8.5s_infinite_ease-in_2.5s]"></div>
+    </div>
+    <!-- Sacred Top Symbol -->
+    <div class="relative z-10 pt-4 flex flex-col items-center">
+      <div class="text-amber-300/80 font-tamil text-sm md:text-base tracking-widest mb-1.5 drop-shadow">அன்பும் அறனும்
+        உடைத்தாயின் இல்வாழ்க்கை<br class="" />பண்பும் பயனும் அது</div>
+      <div
+        class="text-amber-400 font-cinzel text-xs tracking-[0.3em] uppercase opacity-90 drop-shadow flex items-center gap-2">
+        <span class="diya-flame text-amber-300">🪔</span>
+        <span class="">Traditional South Indian Vedic Wedding</span>
+        <span class="diya-flame text-amber-300">🪔</span>
+      </div>
+    </div>
+    <!-- Core Hero Typography -->
+    <div class="relative z-10 max-w-2xl mx-auto my-auto py-8">
+      <!-- Opening Line -->
+      <p class="font-serif-lux italic text-xl md:text-2xl text-amber-200/90 font-light tracking-wide mb-3">
+        Together with our families
+      </p>
+      <!-- Bride Name -->
+      <h1 class="font-cinzel text-3xl sm:text-4xl font-bold tracking-wider text-white drop-shadow-2xl">
+        <span class="gold-gradient-text" id="displayBride">HEMASRI</span>
+      </h1>
+      <p class="font-tamil text-sm text-amber-300/80 tracking-widest mt-1">ஹேமஸ்ரீ</p>
+      <!-- Ampersand with traditional floral embellishment -->
+      <div class="my-4 flex items-center justify-center gap-3">
+        <span class="w-12 h-px bg-gradient-to-r from-transparent via-amber-400/60 to-amber-400"></span>
+        <span class="font-script text-3xl md:text-4xl text-amber-300 drop-shadow">&amp;</span>
+        <span class="w-12 h-px bg-gradient-to-l from-transparent via-amber-400/60 to-amber-400"></span>
+      </div>
+      <!-- Groom Name -->
+      <h2 class="font-cinzel text-2xl sm:text-3xl font-bold tracking-wider text-white drop-shadow-2xl">
+        <span class="gold-gradient-text" id="displayGroom">SATHISHKUMAR</span>
+      </h2>
+      <p class="font-tamil text-sm text-amber-300/80 tracking-widest mt-1">சதீஷ்குமார்</p>
+      <!-- Invitation statement -->
+      <p
+        class="font-serif-lux italic text-lg sm:text-xl text-amber-100/90 font-light mt-6 max-w-md mx-auto leading-relaxed">
+        cordially invite you to celebrate our sacred union and shower your gracious blessings
+      </p>
+      <!-- Wedding Date Badge -->
+      <div
+        class="mt-6 inline-flex items-center gap-2 px-5 py-2 rounded-full bg-black/60 border border-amber-400/50 backdrop-blur-md text-amber-200 text-xs sm:text-sm font-cinzel tracking-widest aura-pulse">
+        <span class="">SUNDAY</span>
+        <span class="text-amber-400">•</span>
+        <span class="font-semibold text-amber-300" id="displayHeroDate">NOVEMBER 22, 2026</span>
+        <span class="text-amber-400">•</span>
+        <span class="">THIRUTHURAIPOONDI</span>
+      </div>
+    </div>
+    <!-- Scroll Cue with delicate animation -->
+    <div class="relative z-10 flex flex-col items-center">
+      <a class="group flex flex-col items-center gap-2 text-amber-300/70 hover:text-amber-200 transition"
+        href="#countdown">
+        <span class="text-[11px] font-cinzel tracking-[0.25em] uppercase">Scroll to Explore</span>
+        <div class="w-5 h-8 border border-amber-400/40 rounded-full flex items-start justify-center p-1">
+          <div class="w-1 h-2 bg-amber-400 rounded-full animate-bounce"></div>
+        </div>
+      </a>
+    </div>
+  </section>
+  <!-- ================= SECTION 2 — WEDDING COUNTDOWN ================= -->
+  <section class="py-16 md:py-20 px-4 bg-[var(--bg-light)] relative" id="countdown">
+    <div class="max-w-xl mx-auto">
+      <!-- Card Container -->
+      <div
+        class="bg-[var(--card-bg)] border border-[var(--card-border)] rounded-2xl p-6 sm:p-8 shadow-xl shadow-amber-950/5 relative text-center">
+        <!-- Traditional Ornamental Top Icon -->
+        <div
+          class="w-10 h-10 mx-auto -mt-11 rounded-full bg-gradient-to-br from-amber-200 via-amber-400 to-amber-600 p-0.5 shadow-lg flex items-center justify-center aura-pulse">
+          <div class="w-full h-full bg-[#181310] rounded-full flex items-center justify-center text-amber-300 text-sm">
+            <span class="diya-flame">🪔</span>
+          </div>
+        </div>
+        <p class="font-tamil text-xs text-[var(--gold-accent)] font-medium tracking-wider mt-3">
+          சுப முகூர்த்தம் நன்னாள்
+        </p>
+        <h3 class="font-cinzel text-xl sm:text-2xl font-semibold tracking-wider text-[var(--text-main)] mt-1">
+          Counting the Auspicious Moments
+        </h3>
+        <p class="font-serif-lux italic text-base text-[var(--text-muted)] mt-1" id="countdownDateTitle">
+          Until Sunday, November 22, 2026 • 06:30 AM IST
+        </p>
+        <!-- Delicate Gold Kolam Divider -->
+        <div class="kolam-divider my-6 text-[var(--gold-primary)] text-xs">❖ ✤ ❖</div>
+        <!-- 4 Countdown Grid Units -->
+        <div class="grid grid-cols-4 gap-2 sm:gap-4 my-2">
+          <!-- Days -->
+          <div
+            class="p-3 sm:p-4 rounded-xl bg-amber-500/5 border border-amber-500/20 text-center transition hover:border-amber-400">
+            <span class="font-cinzel text-xl sm:text-2xl font-bold text-[var(--gold-accent)] block"
+              id="cdDays">--</span>
+            <span
+              class="text-[10px] sm:text-xs uppercase tracking-widest font-cinzel text-[var(--text-muted)] font-medium">Days</span>
+          </div>
+          <!-- Hours -->
+          <div
+            class="p-3 sm:p-4 rounded-xl bg-amber-500/5 border border-amber-500/20 text-center transition hover:border-amber-400">
+            <span class="font-cinzel text-xl sm:text-2xl font-bold text-[var(--gold-accent)] block"
+              id="cdHours">--</span>
+            <span
+              class="text-[10px] sm:text-xs uppercase tracking-widest font-cinzel text-[var(--text-muted)] font-medium">Hours</span>
+          </div>
+          <!-- Minutes -->
+          <div
+            class="p-3 sm:p-4 rounded-xl bg-amber-500/5 border border-amber-500/20 text-center transition hover:border-amber-400">
+            <span class="font-cinzel text-xl sm:text-2xl font-bold text-[var(--gold-accent)] block"
+              id="cdMinutes">--</span>
+            <span
+              class="text-[10px] sm:text-xs uppercase tracking-widest font-cinzel text-[var(--text-muted)] font-medium">Mins</span>
+          </div>
+          <!-- Seconds -->
+          <div
+            class="p-3 sm:p-4 rounded-xl bg-amber-500/5 border border-amber-500/20 text-center transition hover:border-amber-400">
+            <span class="font-cinzel text-xl sm:text-2xl font-bold text-[var(--gold-accent)] block"
+              id="cdSeconds">--</span>
+            <span
+              class="text-[10px] sm:text-xs uppercase tracking-widest font-cinzel text-[var(--text-muted)] font-medium">Secs</span>
+          </div>
+        </div>
+        <div class="mt-6 flex items-center justify-center gap-2 text-xs text-[var(--text-muted)]">
+          <svg class="w-3.5 h-3.5 text-[var(--gold-primary)]" fill="currentColor" viewbox="0 0 20 20">
+            <path clip-rule="evenodd"
+              d="M10 18a8 8 0 100-16 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"
+              fill-rule="evenodd"></path>
+          </svg>
+          <span class="font-serif-lux italic text-sm">கார்த்திகை மாத சுப முகூர்த்த லக்னம் • Shubha Muhurtha
+            Lagnam</span>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ================= SECTION 3 — COUPLE PHOTO STORY ================= -->
+  <section class="py-16 px-4 bg-[var(--bg-light)]" id="story">
+    <div class="max-w-xl mx-auto text-center">
+      <!-- Section Title -->
+      <span class="font-script text-3xl text-[var(--gold-accent)] block mb-1">Our Journey of Love</span>
+      <h3 class="font-cinzel text-2xl sm:text-3xl font-bold text-[var(--text-main)]">Two Souls Blessed By Divinity</h3>
+      <p class="font-tamil text-xs text-[var(--text-muted)] mt-1">விதியால் இணைந்து, அன்பால் மலர்ந்த பந்தம்</p>
+      <!-- The Grand Portrait Frame -->
+      <div
+        class="mt-8 relative mx-auto p-3 sm:p-4 rounded-3xl bg-white border border-amber-200/80 shadow-2xl shadow-amber-950/10 max-w-md">
+        <!-- Delicate Gold Inset Border -->
+        <div class="relative overflow-hidden rounded-2xl border-2 border-amber-300/40">
+          <img alt="Sathishkumar and Hemasri in traditional Kanchipuram silk wedding attire"
+            class="w-full h-auto object-cover max-h-[520px] transition duration-700 hover:scale-105" id="couplePhoto"
+            src="https://lh3.googleusercontent.com/aida/AEtjO1VtojwP7n20CaTvqkPLoIA5s5gdxZt5ZNxMQD1so9CVU_nIB-RVCCwcay61wjY86-JGU06YZl45JFXOm0gnY90XRh6UxIx-E1lh3ZQ4fQBCLzOLd6zgaHy14lhttW0netECnIrV_RV2dts4-Rd9UXpqx0XV6ZSM_bdRP8WOypZ0-s-EN3vhERlPQohGC--c29zYKfOKxNlcWQGg523QGEQmIj0N0zMbhM5aFlVtrJxz3IotgHCc5eUmCKw" />
+          <!-- Subtle corner embellishment -->
+          <div class="absolute top-3 left-3 text-amber-300 drop-shadow">⚜️</div>
+          <div class="absolute top-3 right-3 text-amber-300 drop-shadow">⚜️</div>
+        </div>
+        <!-- Romantic Caption -->
+        <div class="pt-5 pb-2 text-center px-2">
+          <p class="font-serif-lux italic text-lg sm:text-xl text-[var(--text-main)] leading-relaxed">
+            “From cherished shared laughter in Chennai rains to sacred temple vows under the golden mandapam — our
+            journey of forever begins.”
+          </p>
+          <p class="font-tamil text-sm text-[var(--gold-accent)] font-medium mt-2">
+            “உன்னோடு வாழும் ஒவ்வொரு நொடியும் வரம்”
+          </p>
+          <div class="text-xs font-cinzel tracking-widest text-[var(--text-muted)] mt-2">
+            HEMASRI &amp; SATHISHKUMAR • 2026
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ================= SECTION 4 — WEDDING / MUHURTHAM DETAILS ================= -->
+  <section class="py-16 px-4 bg-[var(--bg-light)]" id="muhurtham">
+    <div class="max-w-2xl mx-auto">
+      <!-- High-Luxury Gold Card Frame -->
+      <div
+        class="bg-gradient-to-b from-[#fffefc] via-white to-[#faf6ee] border-2 border-[var(--gold-primary)] rounded-3xl p-5 sm:p-8 shadow-2xl relative overflow-hidden">
+        <!-- Top Ornamental Brass Kalasam Graphic -->
+        <div class="text-center">
+          <div
+            class="inline-flex items-center justify-center w-14 h-14 rounded-full bg-amber-50 border border-amber-300 text-2xl shadow-inner mb-2 aura-pulse">
+            🛕
+          </div>
+          <span class="block text-xs uppercase tracking-[0.3em] font-cinzel text-[var(--gold-accent)] font-bold">
+            Sacred Hindu Wedding Rituals
+          </span>
+          <h3 class="font-cinzel text-3xl sm:text-4xl font-extrabold text-[var(--text-main)] mt-1">
+            திருமண வைபவம்
+          </h3>
+          <h4 class="font-cinzel text-xl sm:text-2xl font-bold gold-gradient-text tracking-widest mt-1">
+            THE WEDDING MUHURTHAM
+          </h4>
+        </div>
+        <div class="kolam-divider my-6 text-[var(--gold-primary)] text-sm">❖ ❖ ❖</div>
+        <!-- Bride & Groom Highlight -->
+        <div class="text-center my-4">
+          <p class="font-serif-lux italic text-lg text-[var(--text-muted)]">Soliciting your esteemed presence at the
+            marriage of</p>
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 my-2">
+            <span class="font-cinzel text-2xl font-bold gold-gradient-text" id="muhBride">HEMASRI</span>
+            <span class="font-script text-2xl text-[var(--gold-accent)]">weds</span>
+            <span class="font-cinzel text-2xl font-bold gold-gradient-text" id="muhGroom">SATHISHKUMAR</span>
+          </div>
+          <p class="font-tamil text-sm text-[var(--gold-accent)] mt-1">ஹேமஸ்ரீ &amp; சதீஷ்குமார்</p>
+        </div>
+        <!-- Muhurtham Specific Box -->
+        <div class="my-6 p-5 sm:p-6 rounded-2xl bg-amber-50/60 border border-amber-200/80 text-center">
+          <div class="grid sm:grid-cols-2 gap-4 divide-y sm:divide-y-0 sm:divide-x divide-amber-200">
+            <!-- Time details -->
+            <div class="sm:pr-4">
+              <span class="text-xs uppercase font-cinzel font-bold text-[var(--gold-accent)] tracking-widest">Auspicious
+                Lagnam</span>
+              <p class="font-cinzel text-xl font-bold text-[var(--text-main)] mt-1" id="muhTime">06:30 AM – 08:00 AM</p>
+              <p class="font-tamil text-xs text-[var(--text-muted)] mt-1">விருச்சிக லக்னம் • உத்திராடம் நட்சத்திரம்</p>
+              <p class="font-serif-lux italic text-xs text-amber-800 mt-0.5">Shubha Muhurtham</p>
+            </div>
+            <!-- Date details -->
+            <div class="pt-3 sm:pt-0 sm:pl-4">
+              <span class="text-xs uppercase font-cinzel font-bold text-[var(--gold-accent)] tracking-widest">Auspicious
+                Day</span>
+              <p class="font-cinzel text-xl font-bold text-[var(--text-main)] mt-1" id="muhDate">Sunday, Nov 22, 2026
+              </p>
+              <p class="font-tamil text-xs text-[var(--text-muted)] mt-1">கார்த்திகை மாதம் 06-ஆம் நாள்</p>
+              <p class="font-serif-lux italic text-xs text-amber-800 mt-0.5">Traditional Tamil Calendar</p>
+            </div>
+          </div>
+        </div>
+        <!-- Venue Details -->
+        <div class="text-center my-6 space-y-2">
+          <div
+            class="inline-flex items-center gap-2 text-xs font-cinzel uppercase tracking-widest text-[var(--gold-accent)] font-semibold">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+              <path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+              <path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round"
+                stroke-width="2"></path>
+            </svg>
+            Mandapam Venue
+          </div>
+          <h5 class="font-cinzel text-xl font-bold text-[var(--text-main)]" id="muhVenue">KAMATCHI MAHAL (TTP)</h5>
+          <p class="text-xs sm:text-sm text-[var(--text-muted)] max-w-md mx-auto" id="muhAddress">
+            Kamatchi Mahal, Thiruthuraipoondi (TTP), Tiruvarur District, Tamil Nadu 614713
+          </p>
+          <p class="text-xs font-tamil text-[var(--gold-accent)] pt-1">
+            தொடர்ந்து திருமண விருந்து நடைபெறும் (Traditional Vazhaielai Kalyana Virundhu)
+          </p>
+        </div>
+        <!-- Actions -->
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-3 pt-4">
+          <a class="w-full sm:w-auto px-6 py-3 rounded-full bg-[var(--text-main)] hover:bg-black text-amber-200 text-xs font-cinzel font-semibold tracking-wider flex items-center justify-center gap-2 shadow-lg transition"
+            href="https://maps.google.com/?q=Kamatchi+Mahal+Thiruthuraipoondi" id="btnMapMuhurtham"
+            rel="noopener noreferrer" target="_blank">
+            <svg class="w-4 h-4 text-amber-400" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+              <path
+                d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"
+                stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+            </svg>
+            <span class="">Kamatchi Mahal in Google Maps</span>
+          </a>
+          <button
+            class="w-full sm:w-auto px-6 py-3 rounded-full bg-amber-500/10 hover:bg-amber-500/20 border border-[var(--gold-primary)] text-[var(--gold-accent)] text-xs font-cinzel font-semibold tracking-wider flex items-center justify-center gap-2 transition"
+            onclick="downloadCalendarEvent()">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+              <path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+            </svg>
+            <span class="">Add to Calendar (.ics)</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ================= SECTION 5 — SAVE THE DATE ================= -->
+  <section class="py-14 px-4 bg-[var(--bg-light)]" id="savethedate">
+    <div class="max-w-xl mx-auto">
+      <div
+        class="bg-[var(--card-bg)] border border-[var(--card-border)] rounded-2xl p-6 sm:p-8 shadow-md text-center relative">
+        <span class="font-script text-3xl text-[var(--gold-accent)]">Save The Date</span>
+        <h3 class="font-cinzel text-3xl font-extrabold text-[var(--text-main)] mt-1" id="stdDate">22 • 11 • 2026</h3>
+        <p class="font-serif-lux italic text-base text-[var(--text-muted)] mt-2">
+          “Your presence and gracious blessings will make our sacred celebration complete.”
+        </p>
+        <p class="font-tamil text-xs text-[var(--gold-accent)] mt-1">
+          தங்கள் வருகையே எங்களின் பெரும் பாக்கியம்
+        </p>
+        <div class="my-5 flex items-center justify-center gap-3">
+          <span class="w-8 h-px bg-amber-300"></span>
+          <span class="text-amber-500 text-xs">🌸 🪔 🌸</span>
+          <span class="w-8 h-px bg-amber-300"></span>
+        </div>
+        <button
+          class="px-5 py-2.5 rounded-full bg-amber-500/10 hover:bg-amber-500/20 border border-amber-400 text-amber-900 text-xs font-cinzel tracking-wider font-semibold inline-flex items-center gap-2 transition"
+          onclick="shareInviteLink()">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+            <path
+              d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"
+              stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+          </svg>
+          <span class="">Share Invitation with Family</span>
+        </button>
+      </div>
+    </div>
+  </section>
+  <!-- ================= SECTION 6 — PERSONAL INVITATION & ELDERS' BLESSINGS ================= -->
+  <section class="py-16 px-4 bg-[var(--bg-light)]" id="blessings">
+    <div class="max-w-2xl mx-auto text-center">
+      <div class="bg-white border border-[var(--card-border)] rounded-3xl p-7 sm:p-10 shadow-lg relative">
+        <span class="text-amber-500 text-2xl mb-2 block">🙏</span>
+        <span class="font-cinzel text-xs uppercase tracking-[0.25em] text-[var(--gold-accent)] font-semibold">An
+          Invitation From Our Hearts</span>
+        <h3 class="font-cinzel text-2xl sm:text-3xl font-bold text-[var(--text-main)] mt-1">With Elders' Blessings</h3>
+        <!-- English Message -->
+        <p
+          class="font-serif-lux italic text-lg sm:text-xl text-[var(--text-muted)] mt-5 leading-relaxed max-w-lg mx-auto">
+          “With the blessings of our elders and the unconditional love of our families and dear friends, we invite you
+          to join us as we embark on this sacred journey of marriage together.”
+        </p>
+        <!-- Traditional Tamil Verbatim Verse -->
+        <div class="my-6 p-4 rounded-xl bg-amber-500/5 border border-amber-300/40">
+          <p class="font-tamil text-sm sm:text-base text-amber-950 leading-relaxed font-normal">
+            “பெரியோர்களின் ஆசியுடனும், உறவினர்கள் மற்றும் நண்பர்களின் அன்புடனும், எங்கள் திருமண விழாவில் கலந்து கொண்டு
+            மணமக்களை வாழ்த்துமாறு அன்புடன் அழைக்கிறோம்.”
+          </p>
+        </div>
+        <!-- Quick Map & WhatsApp RSVP buttons -->
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-3 mt-6">
+          <a class="w-full sm:w-auto px-5 py-2.5 rounded-full bg-stone-900 text-stone-100 text-xs font-cinzel tracking-wider flex items-center justify-center gap-2 hover:bg-black transition"
+            href="https://maps.google.com/?q=Kamatchi+Mahal+Thiruthuraipoondi" rel="noopener noreferrer"
+            target="_blank">
+            <svg class="w-3.5 h-3.5 text-amber-400" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+              <path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+            </svg>
+            <span class="">Open Google Maps (TTP)</span>
+          </a>
+          <a class="w-full sm:w-auto px-5 py-2.5 rounded-full bg-emerald-700 text-white text-xs font-cinzel tracking-wider flex items-center justify-center gap-2 hover:bg-emerald-800 transition shadow"
+            href="https://wa.me/919876543210?text=Vanakkam!%20Heartiest%20congratulations%20Hemasri%20%26%20Sathishkumar!%20Delighted%20to%20attend%20the%20wedding%20at%20Kamatchi%20Mahal,%20Thiruthuraipoondi."
+            rel="noopener noreferrer" target="_blank">
+            <svg class="w-3.5 h-3.5" fill="currentColor" viewbox="0 0 24 24">
+              <path
+                d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z">
+              </path>
+            </svg>
+            <span class="">RSVP on WhatsApp</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ================= SECTION 7 — FINAL CINEMATIC CLOSING ================= -->
+  <section
+    class="relative min-h-[90vh] flex flex-col items-center justify-center text-center px-4 py-20 bg-[#0a0705] overflow-hidden"
+    id="closing">
+    <!-- Immersive Temple Corridor Mandapam Background -->
+    <div class="absolute inset-0 z-0">
+      <img alt="South Indian temple mandapam corridor illuminated with dusk oil lamps and flower garlands"
+        class="w-full h-full object-cover object-center scale-100 filter brightness-[0.65] contrast-[1.12]"
+        src="https://lh3.googleusercontent.com/aida/AEtjO1XFql7oc0XQQAoC0Ly9G3OCPSjX4XbaELNtOD25SK7c1_RE-PwLdB0odRr9xlnNKzQCcDkT3DMCkOUlIQckbiErq6Rf21mWEVuJVXzLAVmiBYobGnoNTlvqnLmpBT0YfA7Kp2Gw3WJykex7Wwemc_KFj2Bt06e_BaQL3JDkPnTxF9tMb6-CEMvgNT-uEjqAll6ZSVB1asiX_VwzdAFDRdxJuSfQxueH4s9GaA-jnBWlfPWv_GypDIuzMAru" />
+      <div class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
+      <div
+        class="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(212,175,55,0.18)_0%,transparent_65%)] pointer-events-none">
+      </div>
+      <!-- Floating Golden Dust in Closing -->
+      <div class="particle w-2 h-2 top-1/4 left-1/4 animate-[floatParticle_6s_infinite_ease-in]"></div>
+      <div class="particle w-1.5 h-1.5 top-1/2 right-1/4 animate-[floatParticle_8s_infinite_ease-in_2s]"></div>
+      <div class="particle w-2 h-2 top-3/4 left-1/3 animate-[floatParticle_7s_infinite_ease-in_1s]"></div>
+    </div>
+    <!-- Content Card in Closing -->
+    <div
+      class="relative z-10 max-w-xl mx-auto p-6 sm:p-8 rounded-3xl bg-black/60 backdrop-blur-md border border-amber-400/30 shadow-2xl text-white">
+      <div class="text-amber-300 text-2xl mb-2"><span class="diya-flame">🪔</span></div>
+      <p class="font-serif-lux italic text-lg sm:text-xl text-amber-200/90 font-light">
+        “Two lives, bonded in dharma and blessed by Ishwara”
+      </p>
+      <h3 class="font-cinzel text-2xl sm:text-3xl font-bold tracking-widest text-white mt-2">
+        <span class="gold-gradient-text" id="closingBride">HEMASRI</span>
+        <span class="text-amber-400 font-script text-3xl mx-2">&amp;</span>
+        <span class="gold-gradient-text" id="closingGroom">SATHISHKUMAR</span>
+      </h3>
+      <div class="text-xs font-cinzel text-amber-300/80 tracking-widest uppercase mt-1" id="closingDate">
+        NOVEMBER 22, 2026 • THIRUTHURAIPOONDI
+      </div>
+      <!-- Traditional Sanskrit / Tamil Mangala Blessing -->
+      <div class="my-6 py-4 border-y border-amber-500/30 space-y-1">
+        <p class="font-tamil text-amber-200 text-xs sm:text-sm tracking-wide">
+          “மங்கலம் பெருகுக! தம்பதிகள் பல்லாண்டு நலமுடன் வாழ்க!”
+        </p>
+        <p class="font-cinzel text-[11px] text-amber-400/90 tracking-widest uppercase">
+          Mangalyam Tantunanena Mama Jeevana Hetuna
+        </p>
+      </div>
+      <!-- Heartfelt Gratitude -->
+      <p class="font-serif-lux italic text-sm sm:text-base text-stone-200 max-w-md mx-auto">
+        Thank You for Being Part of Our Sacred Journey and Cherished Memories.
+      </p>
+      <div class="mt-6 flex items-center justify-center gap-4 text-xs font-cinzel text-amber-300/80">
+        <button class="hover:text-amber-200 flex items-center gap-1.5 transition"
+          onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+            <path d="M5 10l7-7m0 0l7 7m-7-7v18" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+          </svg>
+          <span class="">Back to Top</span>
+        </button>
+      </div>
+    </div>
+    <!-- Footer Copyright & Cultural Credits -->
+    <footer class="relative z-10 mt-12 text-[11px] text-amber-200/50 font-cinzel tracking-widest text-center">
+      Designed with reverence for Tamil Vedic Traditions • Om Namah Shivaya
+    </footer>
+  </section>
+  <!-- ================= LOGIC SCRIPT ================= -->
+  <script>
+    // Config state
+    const weddingState = {
+      bride: 'Hemasri',
+      groom: 'Sathishkumar',
+      dateStr: 'Sunday, November 22, 2026',
+      targetDate: new Date('2026-11-22T06:30:00+05:30').getTime(),
+      time: '06:30 AM – 08:00 AM',
+      venue: 'Kamatchi Mahal (TTP)',
+      address: 'Kamatchi Mahal, Thiruthuraipoondi (TTP), Tiruvarur District, Tamil Nadu 614713',
+      whatsapp: '919876543210',
+      audioPlaying: false
+    };
+
+    // 1. LIVE COUNTDOWN TIMER
+    function updateCountdown() {
+      const now = Date.now();
+      const diff = weddingState.targetDate - now;
+
+      const daysElem = document.getElementById('cdDays');
+      const hoursElem = document.getElementById('cdHours');
+      const minsElem = document.getElementById('cdMinutes');
+      const secsElem = document.getElementById('cdSeconds');
+
+      if (diff > 0) {
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+        if (daysElem) daysElem.textContent = String(days).padStart(2, '0');
+        if (hoursElem) hoursElem.textContent = String(hours).padStart(2, '0');
+        if (minsElem) minsElem.textContent = String(minutes).padStart(2, '0');
+        if (secsElem) secsElem.textContent = String(seconds).padStart(2, '0');
+      } else {
+        if (daysElem) daysElem.textContent = '00';
+        if (hoursElem) hoursElem.textContent = '00';
+        if (minsElem) minsElem.textContent = '00';
+        if (secsElem) secsElem.textContent = '00';
+      }
+    }
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+
+    // 2. AUDIO PLAYER
+    const audio = document.getElementById("weddingAudio");
+    const icon = document.getElementById("musicIcon");
+    const musicBtn = document.getElementById("musicBtn");
+
+    async function playMusic() {
+      try {
+        await audio.play();
+        weddingState.audioPlaying = true;
+        icon.textContent = "🎶";
+        musicBtn.setAttribute("aria-label", "Pause Wedding Music");
+      } catch (error) {
+        weddingState.audioPlaying = false;
+        console.log("Browser requires user interaction to play audio.");
+      }
+    }
+
+    function toggleAudio() {
+      if (audio.paused) {
+        playMusic();
+      } else {
+        audio.pause();
+        weddingState.audioPlaying = false;
+
+        icon.textContent = "🔇";
+        musicBtn.setAttribute("aria-label", "Play Wedding Music");
+      }
+    }
+
+    // Try automatic playback when the page opens
+    window.addEventListener("load", () => {
+      playMusic();
+    });
+
+    // 3. CALENDAR ICS EVENT DOWNLOAD
+    function downloadCalendarEvent() {
+      const icsContent =
+        `BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Sathishkumar & Hemasri Wedding//Tamil Hindu Wedding//EN
+BEGIN:VEVENT
+UID:wedding-${Date.now()}@tamilwedding.in
+DTSTAMP:20260101T000000Z
+DTSTART:20261122T033000Z
+DTEND:20261122T070000Z
+SUMMARY:Hemasri & Sathishkumar — Sacred Tamil Wedding (Muhurtham)
+DESCRIPTION:Traditional South Indian Vedic Wedding & Vazhaielai Kalyana Virundhu Feast at Kamatchi Mahal.
+LOCATION:${weddingState.venue}, ${weddingState.address}
+STATUS:CONFIRMED
+END:VEVENT
+END:VCALENDAR`;
+
+      const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8;' });
+      const link = document.createElement('a');
+      link.href = window.URL.createObjectURL(blob);
+      link.setAttribute('download', 'Hemasri_Sathishkumar_Wedding.ics');
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+
+    // 4. SHARE INVITATION
+    function shareInviteLink() {
+      if (navigator.share) {
+        navigator.share({
+          title: 'Hemasri & Sathishkumar — Wedding Invitation',
+          text: 'Together with our families, we cordially invite you to celebrate our wedding on Sunday, November 22, 2026 at Kamatchi Mahal, Thiruthuraipoondi.',
+          url: window.location.href,
+        }).catch(() => { });
+      } else {
+        navigator.clipboard.writeText(window.location.href);
+        alert('Invitation link copied to clipboard! Share it with friends and family.');
+      }
+    }
+  </script>
+</body>
+
+</html>
