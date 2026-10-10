@@ -275,9 +275,9 @@
   </header>
   <!-- Hidden HTML5 Audio Element (Festive Carnatic instrumental) -->
   <audio id="weddingAudio" loop preload="auto">
-  <source src="./song.mp3" type="audio/mpeg">
-  Your browser does not support audio.
-</audio>
+    <source src="./song.mp3" type="audio/mpeg">
+    Your browser does not support audio.
+  </audio>
   <!-- ================= SECTION 1 — CINEMATIC OPENING ================= -->
   <section
     class="relative min-h-screen flex flex-col items-center justify-between text-center px-4 pt-24 pb-12 overflow-hidden bg-[#0d0a08]"
@@ -358,7 +358,7 @@
         class="mt-6 inline-flex items-center gap-2 px-5 py-2 rounded-full bg-black/60 border border-amber-400/50 backdrop-blur-md text-amber-200 text-xs sm:text-sm font-cinzel tracking-widest aura-pulse">
         <span class="">SUNDAY</span>
         <span class="text-amber-400">•</span>
-        <span class="font-semibold text-amber-300" id="displayHeroDate">NOVEMBER 22, 2026</span>
+        <span class="font-semibold text-amber-300" id="displayHeroDate">NOVEMBER 22, 2025</span>
         <span class="text-amber-400">•</span>
         <span class="">THIRUTHURAIPOONDI</span>
       </div>
@@ -394,7 +394,7 @@
           Counting the Auspicious Moments
         </h3>
         <p class="font-serif-lux italic text-base text-[var(--text-muted)] mt-1" id="countdownDateTitle">
-          Until Sunday, November 22, 2026 • 06:30 AM IST
+          Until Sunday, November 22, 2025 • 09:00 AM IST
         </p>
         <!-- Delicate Gold Kolam Divider -->
         <div class="kolam-divider my-6 text-[var(--gold-primary)] text-xs">❖ ✤ ❖</div>
@@ -474,7 +474,7 @@
             “உன்னோடு வாழும் ஒவ்வொரு நொடியும் வரம்”
           </p>
           <div class="text-xs font-cinzel tracking-widest text-[var(--text-muted)] mt-2">
-            HEMASRI &amp; SATHISHKUMAR • 2026
+            HEMASRI &amp; SATHISHKUMAR • 2025
           </div>
         </div>
       </div>
@@ -521,7 +521,7 @@
             <div class="sm:pr-4">
               <span class="text-xs uppercase font-cinzel font-bold text-[var(--gold-accent)] tracking-widest">Auspicious
                 Lagnam</span>
-              <p class="font-cinzel text-xl font-bold text-[var(--text-main)] mt-1" id="muhTime">06:30 AM – 08:00 AM</p>
+              <p class="font-cinzel text-xl font-bold text-[var(--text-main)] mt-1" id="muhTime">09:00 AM – 10:30 AM</p>
               <p class="font-tamil text-xs text-[var(--text-muted)] mt-1">விருச்சிக லக்னம் • உத்திராடம் நட்சத்திரம்</p>
               <p class="font-serif-lux italic text-xs text-amber-800 mt-0.5">Shubha Muhurtham</p>
             </div>
@@ -529,7 +529,7 @@
             <div class="pt-3 sm:pt-0 sm:pl-4">
               <span class="text-xs uppercase font-cinzel font-bold text-[var(--gold-accent)] tracking-widest">Auspicious
                 Day</span>
-              <p class="font-cinzel text-xl font-bold text-[var(--text-main)] mt-1" id="muhDate">Sunday, Nov 22, 2026
+              <p class="font-cinzel text-xl font-bold text-[var(--text-main)] mt-1" id="muhDate">Sunday, Nov 22, 2025
               </p>
               <p class="font-tamil text-xs text-[var(--text-muted)] mt-1">கார்த்திகை மாதம் 06-ஆம் நாள்</p>
               <p class="font-serif-lux italic text-xs text-amber-800 mt-0.5">Traditional Tamil Calendar</p>
@@ -587,7 +587,7 @@
       <div
         class="bg-[var(--card-bg)] border border-[var(--card-border)] rounded-2xl p-6 sm:p-8 shadow-md text-center relative">
         <span class="font-script text-3xl text-[var(--gold-accent)]">Save The Date</span>
-        <h3 class="font-cinzel text-3xl font-extrabold text-[var(--text-main)] mt-1" id="stdDate">22 • 11 • 2026</h3>
+        <h3 class="font-cinzel text-3xl font-extrabold text-[var(--text-main)] mt-1" id="stdDate">22 • 11 • 2025</h3>
         <p class="font-serif-lux italic text-base text-[var(--text-muted)] mt-2">
           “Your presence and gracious blessings will make our sacred celebration complete.”
         </p>
@@ -689,7 +689,7 @@
         <span class="gold-gradient-text" id="closingGroom">SATHISHKUMAR</span>
       </h3>
       <div class="text-xs font-cinzel text-amber-300/80 tracking-widest uppercase mt-1" id="closingDate">
-        NOVEMBER 22, 2026 • THIRUTHURAIPOONDI
+        NOVEMBER 22, 2025 • THIRUTHURAIPOONDI
       </div>
       <!-- Traditional Sanskrit / Tamil Mangala Blessing -->
       <div class="my-6 py-4 border-y border-amber-500/30 space-y-1">
@@ -725,9 +725,9 @@
     const weddingState = {
       bride: 'Hemasri',
       groom: 'Sathishkumar',
-      dateStr: 'Sunday, November 22, 2026',
-      targetDate: new Date('2026-11-22T06:30:00+05:30').getTime(),
-      time: '06:30 AM – 08:00 AM',
+      dateStr: 'Sunday, November 22, 2025',
+      targetDate: new Date('2025-11-22T09:00:00+05:30').getTime(),
+      time: '09:00 AM – 10:30 AM',
       venue: 'Kamatchi Mahal (TTP)',
       address: 'Kamatchi Mahal, Thiruthuraipoondi (TTP), Tiruvarur District, Tamil Nadu 614713',
       whatsapp: '919876543210',
@@ -772,12 +772,13 @@
     async function playMusic() {
       try {
         await audio.play();
+
         weddingState.audioPlaying = true;
         icon.textContent = "🎶";
         musicBtn.setAttribute("aria-label", "Pause Wedding Music");
       } catch (error) {
         weddingState.audioPlaying = false;
-        console.log("Browser requires user interaction to play audio.");
+        console.log("Autoplay blocked or audio failed to load:", error);
       }
     }
 
@@ -787,15 +788,23 @@
       } else {
         audio.pause();
         weddingState.audioPlaying = false;
-
         icon.textContent = "🔇";
         musicBtn.setAttribute("aria-label", "Play Wedding Music");
       }
     }
 
-    // Try automatic playback when the page opens
+    // Attempt autoplay when the page loads
     window.addEventListener("load", () => {
       playMusic();
+    });
+
+    // Keep the state synchronized with actual audio playback
+    audio.addEventListener("play", () => {
+      weddingState.audioPlaying = true;
+    });
+
+    audio.addEventListener("pause", () => {
+      weddingState.audioPlaying = false;
     });
 
     // 3. CALENDAR ICS EVENT DOWNLOAD
@@ -806,9 +815,9 @@ VERSION:2.0
 PRODID:-//Sathishkumar & Hemasri Wedding//Tamil Hindu Wedding//EN
 BEGIN:VEVENT
 UID:wedding-${Date.now()}@tamilwedding.in
-DTSTAMP:20260101T000000Z
-DTSTART:20261122T033000Z
-DTEND:20261122T070000Z
+DTSTAMP:20250101T000000Z
+DTSTART:20251122T033000Z
+DTEND:20251122T070000Z
 SUMMARY:Hemasri & Sathishkumar — Sacred Tamil Wedding (Muhurtham)
 DESCRIPTION:Traditional South Indian Vedic Wedding & Vazhaielai Kalyana Virundhu Feast at Kamatchi Mahal.
 LOCATION:${weddingState.venue}, ${weddingState.address}
@@ -830,7 +839,7 @@ END:VCALENDAR`;
       if (navigator.share) {
         navigator.share({
           title: 'Hemasri & Sathishkumar — Wedding Invitation',
-          text: 'Together with our families, we cordially invite you to celebrate our wedding on Sunday, November 22, 2026 at Kamatchi Mahal, Thiruthuraipoondi.',
+          text: 'Together with our families, we cordially invite you to celebrate our wedding on Sunday, November 22, 2025 at Kamatchi Mahal, Thiruthuraipoondi.',
           url: window.location.href,
         }).catch(() => { });
       } else {
