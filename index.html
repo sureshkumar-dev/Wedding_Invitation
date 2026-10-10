@@ -764,42 +764,43 @@
     updateCountdown();
     setInterval(updateCountdown, 1000);
 
+
     // 2. AUDIO PLAYER
     const audio = document.getElementById("weddingAudio");
     const icon = document.getElementById("musicIcon");
     const musicBtn = document.getElementById("musicBtn");
 
-    function toggleAudio() {
-      if (audio.paused) {
-        audio.play()
-          .then(() => {
-            weddingState.audioPlaying = true;
-            if (icon) icon.textContent = "🎶";
-          })
-          .catch((error) => {
-            console.error("Music playback failed:", error);
-          });
-      } else {
-        audio.pause();
-        weddingState.audioPlaying = false;
-        if (icon) icon.textContent = "🔇";
+    async function toggleAudio() {
+      try {
+        if (audio.paused) {
+          await audio.play();
+        } else {
+          audio.pause();
+        }
+      } catch (error) {
+        console.error("Music playback failed:", error);
       }
     }
 
-    // Try autoplay; the browser may block it
-    window.addEventListener("load", () => {
-      audio.play().catch(() => {
-        console.log("Click the music button to start playback.");
-      });
-    });
-
     audio.addEventListener("play", () => {
       weddingState.audioPlaying = true;
+      if (icon) icon.textContent = "🎶";
+      if (musicBtn) musicBtn.setAttribute("aria-label", "Pause music");
     });
 
     audio.addEventListener("pause", () => {
       weddingState.audioPlaying = false;
+      if (icon) icon.textContent = "🔇";
+      if (musicBtn) musicBtn.setAttribute("aria-label", "Play music");
     });
+
+    // Automatically try playing when the page loads
+    window.addEventListener("load", () => {
+      audio.play().catch(() => {
+        console.log("Autoplay blocked. Click the music button to play.");
+      });
+    });
+
 
     // 3. CALENDAR ICS EVENT DOWNLOAD
     function downloadCalendarEvent() {
